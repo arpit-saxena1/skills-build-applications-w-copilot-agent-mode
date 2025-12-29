@@ -1,5 +1,5 @@
 
-import logo from '../public/octofitapp-small.png';
+
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4 octofit-navbar">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/">
-            <img src={logo} alt="OctoFit Logo" className="octofit-logo me-2" height="40" />
+            <img src={process.env.PUBLIC_URL + '/octofitapp-small.png'} alt="OctoFit Logo" className="octofit-logo me-2" height="40" />
             <span className="fw-bold">OctoFit Tracker</span>
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
