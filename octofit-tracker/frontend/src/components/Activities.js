@@ -19,13 +19,30 @@ const Activities = () => {
   }, [endpoint]);
 
   return (
-    <div>
-      <h2>Activities</h2>
-      <ul>
-        {activities.map((a, i) => (
-          <li key={a.id || i}>{a.type} - {a.duration} min - {a.date}</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-body">
+        <h2 className="card-title text-primary mb-4">Activities</h2>
+        <div className="table-responsive">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>Type</th>
+                <th>Duration (min)</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {activities.map((a, i) => (
+                <tr key={a.id || i}>
+                  <td>{a.type}</td>
+                  <td>{a.duration}</td>
+                  <td>{a.date}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

@@ -19,13 +19,30 @@ const Users = () => {
   }, [endpoint]);
 
   return (
-    <div>
-      <h2>Users</h2>
-      <ul>
-        {users.map((u, i) => (
-          <li key={u.id || i}>{u.name} ({u.email})</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-body">
+        <h2 className="card-title text-primary mb-4">Users</h2>
+        <div className="table-responsive">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Team</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((u, i) => (
+                <tr key={u.id || i}>
+                  <td>{u.name}</td>
+                  <td>{u.email}</td>
+                  <td>{u.team?.name || ''}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

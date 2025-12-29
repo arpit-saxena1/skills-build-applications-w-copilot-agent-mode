@@ -19,13 +19,28 @@ const Leaderboard = () => {
   }, [endpoint]);
 
   return (
-    <div>
-      <h2>Leaderboard</h2>
-      <ul>
-        {entries.map((e, i) => (
-          <li key={e.id || i}>{e.user?.name || 'User'}: {e.score}</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-body">
+        <h2 className="card-title text-primary mb-4">Leaderboard</h2>
+        <div className="table-responsive">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>User</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {entries.map((e, i) => (
+                <tr key={e.id || i}>
+                  <td>{e.user?.name || 'User'}</td>
+                  <td>{e.score}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

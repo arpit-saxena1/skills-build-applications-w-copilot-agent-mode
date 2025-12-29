@@ -19,13 +19,30 @@ const Workouts = () => {
   }, [endpoint]);
 
   return (
-    <div>
-      <h2>Workouts</h2>
-      <ul>
-        {workouts.map((w, i) => (
-          <li key={w.id || i}>{w.name}: {w.description}</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-body">
+        <h2 className="card-title text-primary mb-4">Workouts</h2>
+        <div className="table-responsive">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Suggested For</th>
+              </tr>
+            </thead>
+            <tbody>
+              {workouts.map((w, i) => (
+                <tr key={w.id || i}>
+                  <td>{w.name}</td>
+                  <td>{w.description}</td>
+                  <td>{w.suggested_for}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
